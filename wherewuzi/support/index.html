@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whereWUZi Support</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+        nav {
+            background: #1a2b4a;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        nav .brand {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        nav a {
+            color: #aac4e8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        nav a:hover { color: #fff; }
+
+        .page-header {
+            background: linear-gradient(135deg, #1a2b4a 0%, #2e4f80 100%);
+            color: #fff;
+            padding: 48px 32px 40px;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin: 0 0 8px;
+        }
+        .page-header p {
+            color: #aac4e8;
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 56px 24px;
+        }
+
+        .contact-box {
+            background: #f0f5ff;
+            border: 1px solid #c5d8f5;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 48px;
+        }
+        .contact-box h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 0 0 8px;
+        }
+        .contact-box p { margin: 0; color: #444; }
+        .contact-box a {
+            color: #2e4f80;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 48px 0 16px;
+        }
+        h2:first-of-type { margin-top: 0; }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a2b4a;
+            margin: 0 0 8px;
+        }
+        .faq-item p {
+            margin: 0;
+            color: #444;
+            font-size: 15px;
+        }
+        .faq-item a { color: #2e4f80; }
+
+        footer {
+            background: #1a2b4a;
+            color: #aac4e8;
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 14px;
+            margin-top: 64px;
+        }
+        footer a { color: #aac4e8; text-decoration: none; }
+        footer a:hover { color: #fff; }
+        footer .links { margin-bottom: 12px; }
+        footer .links a { margin: 0 12px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a class="brand" href="/">JH Property Holdings LLC</a>
+        <a href="/wherewuzi">whereWUZi</a>
+        <a href="/wherewuzi/support">Support</a>
+        <a href="/wherewuzi/privacy">Privacy Policy</a>
+    </nav>
+
+    <div class="page-header">
+        <img src="/images/wherewuzi-logo.png" alt="whereWUZi logo" width="64" height="64" style="border-radius:12px; margin-bottom:14px; display:block;">
+        <h1>whereWUZi Support</h1>
+        <p>Questions, feedback, and help for whereWUZi on Windows.</p>
+    </div>
+
+    <div class="content">
+
+        <!-- Contact -->
+        <div class="contact-box">
+            <h2>Contact Support</h2>
+            <p>Email us at <a href="mailto:support@jhpropertyholdingsllc.com">support@jhpropertyholdingsllc.com</a> and we'll get back to you as soon as possible.</p>
+        </div>
+
+        <!-- FAQ -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Where is my location data stored?</h3>
+            <p>All location data is stored in a local file on your device at <code>%LOCALAPPDATA%\Packages\...\LocalState\location_log.jsonl</code>. Nothing is uploaded to any server or cloud service. The Settings page in the app shows the exact file path.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does whereWUZi upload my location data anywhere?</h3>
+            <p>No. whereWUZi only makes one outbound connection — to <a href="https://ipinfo.io" target="_blank">ipinfo.io</a> to look up your approximate location from your public IP address. Your location log is never transmitted off your device.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How accurate is the location?</h3>
+            <p>In the free tier, whereWUZi uses your public IP address to determine your approximate city and region. This is usually accurate to city level but may reflect your ISP's routing rather than your exact location. Premium users can enable Precision Location, which uses Windows location services (Wi-Fi positioning or GPS) for street-level accuracy.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why does the app show a different city when I'm using a VPN?</h3>
+            <p>When a VPN is active, your public IP address appears to be in the VPN server's location. whereWUZi logs the location associated with your public IP, so it will reflect the VPN exit node location rather than your physical location. If you have Precision Location enabled (Premium), the city and address will reflect your actual physical location even with a VPN active.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I enable background logging?</h3>
+            <p>Open the app, go to the Settings tab, and make sure Background Logging is turned on. Windows may ask for permission to run background tasks. If background logging is blocked, check your Windows battery saver settings — battery saver can prevent background tasks from running.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is Precision Location and how do I enable it?</h3>
+            <p>Precision Location is a Premium feature that uses Windows location services to log a street-level address alongside your IP-based location. To enable it, upgrade to Premium, then go to Settings and turn on Precision Location. Windows will ask for location permission the first time.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is Network Connection Logging?</h3>
+            <p>Network Connection Logging is a Premium feature that logs an additional entry whenever your device connects to a network with a different public IP address — for example when you arrive at a new location and connect to a new network. This gives you a more complete picture of your movements throughout the day, not just one entry per day.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I delete my location history?</h3>
+            <p>You can delete individual entries from within the app. To delete your entire log, uninstall the app or navigate to the log file path shown in the Settings page and delete the <code>location_log.jsonl</code> file.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>I purchased Premium but the app still shows the trial. What do I do?</h3>
+            <p>Close and reopen the app — it checks your license on each launch. If the issue persists, make sure you're signed into the Microsoft Store with the same account used to purchase. Contact us at <a href="mailto:support@jhpropertyholdingsllc.com">support@jhpropertyholdingsllc.com</a> if the problem continues.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is whereWUZi available on Mac or iPhone?</h3>
+            <p>whereWUZi is currently available for Windows only. iOS and Mac versions are planned for a future release.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="links">
+            <a href="/wherewuzi">whereWUZi</a>
+            <a href="/wherewuzi/support">Support</a>
+            <a href="/wherewuzi/privacy">Privacy Policy</a>
+            <a href="https://www.microsoft.com/store/apps/9PM5JNXHHG8S" target="_blank">Microsoft Store</a>
+        </div>
+        <div>&copy; 2026 J H Property Holdings LLC &nbsp;·&nbsp; <a href="mailto:support@jhpropertyholdingsllc.com">support@jhpropertyholdingsllc.com</a></div>
+    </footer>
+
+</body>
+</html>

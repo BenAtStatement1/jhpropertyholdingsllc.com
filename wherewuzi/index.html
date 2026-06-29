@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whereWUZi — Location Logger for Windows</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+
+        /* ── Nav ── */
+        nav {
+            background: #1a2b4a;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        nav .brand {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+        nav a {
+            color: #aac4e8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        nav a:hover { color: #fff; }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, #1a2b4a 0%, #2e4f80 100%);
+            color: #fff;
+            padding: 72px 32px 64px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0 0 12px;
+            letter-spacing: -1px;
+        }
+        .hero .tagline {
+            font-size: 20px;
+            color: #aac4e8;
+            margin: 0 0 36px;
+        }
+        .store-badge {
+            display: inline-block;
+            background: #fff;
+            color: #1a2b4a;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+        .store-badge:hover { background: #e8f0fb; }
+
+        /* ── Sections ── */
+        .section {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 56px 24px;
+        }
+        .section h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            color: #1a2b4a;
+        }
+        .section p {
+            margin: 0 0 16px;
+            color: #444;
+        }
+
+        /* ── Feature grid ── */
+        .features {
+            background: #f5f8fd;
+            padding: 56px 24px;
+        }
+        .features-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .features h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 0 0 32px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            border: 1px solid #dde6f5;
+        }
+        .feature-card .icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 8px;
+            color: #1a2b4a;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .premium-badge {
+            display: inline-block;
+            background: #b8860b;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* ── Use cases ── */
+        .use-cases {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 56px 24px;
+        }
+        .use-cases h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 0 0 20px;
+        }
+        .use-case-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .use-case-list li {
+            padding: 14px 0 14px 32px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            color: #444;
+        }
+        .use-case-list li:last-child { border-bottom: none; }
+        .use-case-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2e4f80;
+            font-weight: 700;
+        }
+
+        /* ── Pricing ── */
+        .pricing {
+            background: #f5f8fd;
+            padding: 56px 24px;
+        }
+        .pricing-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .pricing h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 0 0 20px;
+        }
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #dde6f5;
+            border-radius: 8px;
+            padding: 28px;
+        }
+        .pricing-card.featured {
+            border-color: #2e4f80;
+            border-width: 2px;
+        }
+        .pricing-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: #1a2b4a;
+        }
+        .pricing-card .price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2e4f80;
+            margin: 0 0 16px;
+        }
+        .pricing-card .price span {
+            font-size: 15px;
+            font-weight: 400;
+            color: #888;
+        }
+        .pricing-card ul {
+            padding: 0 0 0 18px;
+            margin: 0;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* ── Privacy callout ── */
+        .privacy-callout {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 56px 24px;
+        }
+        .privacy-callout h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 0 0 16px;
+        }
+        .privacy-callout p { color: #444; }
+        .privacy-callout a { color: #2e4f80; }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a2b4a;
+            color: #aac4e8;
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 14px;
+        }
+        footer a { color: #aac4e8; text-decoration: none; }
+        footer a:hover { color: #fff; }
+        footer .links { margin-bottom: 12px; }
+        footer .links a { margin: 0 12px; }
+
+        /* ── Divider ── */
+        hr.section-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a class="brand" href="/">JH Property Holdings LLC</a>
+        <a href="/wherewuzi">whereWUZi</a>
+        <a href="/wherewuzi/support">Support</a>
+        <a href="/wherewuzi/privacy">Privacy Policy</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <img src="/images/wherewuzi-logo.png" alt="whereWUZi logo" width="96" height="96" style="border-radius:18px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
+        <h1>whereWUZi</h1>
+        <p class="tagline">Your quiet location log. Always running. Never uploading.</p>
+        <a class="store-badge" href="https://www.microsoft.com/store/apps/9PM5JNXHHG8S" target="_blank">
+            ⊞ &nbsp;Get it on Microsoft Store
+        </a>
+    </div>
+
+    <!-- What it does -->
+    <div class="section">
+        <h2>What is whereWUZi?</h2>
+        <p>whereWUZi is a Windows app that quietly logs where you've been — by date, city, and network — automatically in the background. Once installed, it runs silently and builds a dated record of your location history without any interaction required.</p>
+        <p>Your location log is stored only on your device. Nothing is uploaded, synced, or shared. whereWUZi never asks for an account and never connects to any cloud service.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Features -->
+    <div class="features">
+        <div class="features-inner">
+            <h2>Features</h2>
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="icon">📍</div>
+                    <h3>Daily Location Logging</h3>
+                    <p>Automatically logs your approximate location once per day using your public IP address. No GPS required.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🔕</div>
+                    <h3>Runs in the Background</h3>
+                    <p>Logs silently while you work. No popups, no interruptions. Open the app anytime to review your history.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Stays on Your Device</h3>
+                    <p>Your location history is stored locally in a plain text file. No account, no cloud, no uploads — ever.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Precision Location <span class="premium-badge">★ Premium</span></h3>
+                    <p>Uses Windows location services (Wi-Fi or GPS) for street-level accuracy with a full address in each log entry.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🌐</div>
+                    <h3>Network Change Logging <span class="premium-badge">★ Premium</span></h3>
+                    <p>Logs an additional entry whenever your device connects to a new network with a different public IP address.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">📋</div>
+                    <h3>Simple Log Viewer</h3>
+                    <p>Browse, search, and sort your location history by date, city, or region. Export or copy entries anytime.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Use cases -->
+    <div class="use-cases">
+        <h2>Who uses whereWUZi?</h2>
+        <p>whereWUZi is built for people who need a reliable, private record of where they've been:</p>
+        <ul class="use-case-list">
+            <li><strong>Business travelers</strong> — document travel dates and locations for expense reports and reimbursement.</li>
+            <li><strong>Credit card review</strong> — quickly verify that charges match where you actually were on a given date.</li>
+            <li><strong>Domicile and residency documentation</strong> — establish a dated record of physical presence for tax residency, state domicile, or legal purposes.</li>
+            <li><strong>Frequent movers</strong> — people who split time between homes, cities, or states and need to track where they spent time.</li>
+            <li><strong>Remote workers</strong> — document work locations for compliance or reimbursement purposes.</li>
+            <li><strong>Anyone who wants a private location history</strong> — without giving it to Google, Apple, or any other service.</li>
+        </ul>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Pricing -->
+    <div class="pricing">
+        <div class="pricing-inner">
+            <h2>Pricing</h2>
+            <div class="pricing-cards">
+
+                <div class="pricing-card">
+                    <h3>Free Trial</h3>
+                    <div class="price">Free <span>for 30 days</span></div>
+                    <ul>
+                        <li>Daily IP-based location logging</li>
+                        <li>Full location history viewer</li>
+                        <li>Background logging</li>
+                        <li>Local storage only</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Premium</h3>
+                    <div class="price">$1.99 <span>one-time</span></div>
+                    <ul>
+                        <li>Everything in Free</li>
+                        <li>★ Precision Location (street-level)</li>
+                        <li>★ Network connection change logging</li>
+                        <li>No subscription, no renewal</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Privacy -->
+    <div class="privacy-callout">
+        <h2>Privacy first</h2>
+        <p>whereWUZi was built on a simple principle: your location history belongs to you. The app uses <a href="https://ipinfo.io">ipinfo.io</a> to look up your approximate location from your public IP address — that is the only outbound connection the app makes. Your location log never leaves your device.</p>
+        <p>Read the full <a href="/wherewuzi/privacy">whereWUZi Privacy Policy</a>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="links">
+            <a href="/wherewuzi">whereWUZi</a>
+            <a href="/wherewuzi/support">Support</a>
+            <a href="/wherewuzi/privacy">Privacy Policy</a>
+            <a href="https://www.microsoft.com/store/apps/9PM5JNXHHG8S" target="_blank">Microsoft Store</a>
+        </div>
+        <div>&copy; 2026 J H Property Holdings LLC &nbsp;·&nbsp; <a href="mailto:support@jhpropertyholdingsllc.com">support@jhpropertyholdingsllc.com</a></div>
+    </footer>
+
+</body>
+</html>

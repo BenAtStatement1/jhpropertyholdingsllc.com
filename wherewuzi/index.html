@@ -261,6 +261,42 @@
             border-top: 1px solid #eee;
             margin: 0;
         }
+
+        /* ── Calendar showcase ── */
+        .calendar-showcase {
+            padding: 56px 24px;
+        }
+        .calendar-showcase-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .calendar-showcase h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin: 0 0 16px;
+        }
+        .calendar-showcase p {
+            color: #444;
+            margin: 0 0 16px;
+        }
+        .calendar-img {
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #dde6f5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            margin: 24px 0 8px;
+        }
+        .calendar-img + .img-caption {
+            margin-top: 0;
+        }
+        .img-caption {
+            font-size: 13px;
+            color: #888;
+            margin: 0 0 28px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -275,7 +311,7 @@
 
     <!-- Hero -->
     <div class="hero">
-        <img src="/images/wherewuzi-logo.png" alt="whereWUZi logo" width="96" height="96" style="border-radius:18px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
+        <img src="../images/wherewuzi-logo.png" alt="whereWUZi logo" width="96" height="96" style="border-radius:18px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
         <h1>whereWUZi</h1>
         <p class="tagline">Your quiet location log. Always running. Never uploading.</p>
         <a class="store-badge" href="https://www.microsoft.com/store/apps/9PM5JNXHHG8S" target="_blank">
@@ -334,7 +370,28 @@
                     <p>Browse, search, and sort your location history by date, city, or region. Export or copy entries anytime.</p>
                 </div>
 
+                <div class="feature-card">
+                    <div class="icon">📅</div>
+                    <h3>Location Calendar</h3>
+                    <p>Browse your location history month by month. Each day shows the cities you logged — right-click any day for the full detail. Export any month as a PDF.</p>
+                </div>
+
             </div>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Calendar showcase -->
+    <div class="calendar-showcase">
+        <div class="calendar-showcase-inner">
+            <h2>See your history, month by month</h2>
+            <p>The Location Calendar gives you a visual overview of where you have been. Each month lays out your logged cities day by day — making it easy to confirm where you were on a specific date, review a week of travel at a glance, or pull together a month of presence records for tax or domicile purposes.</p>
+            <p>Export any month as a PDF to share with an accountant, attorney, or employer.</p>
+            <img src="../images/sampleMonth.png" alt="whereWUZi Location Calendar showing June 2026 with cities logged each day" class="calendar-img">
+            <p class="img-caption">June 2026 — five cities, logged automatically in the background.</p>
+            <img src="../images/sampleMonth2.png" alt="whereWUZi detail popup showing full location entry for June 15" class="calendar-img">
+            <p class="img-caption">Right-click any day to see the full entry — timestamp, address, coordinates, network, and more.</p>
         </div>
     </div>
 
@@ -345,10 +402,10 @@
         <h2>Who uses whereWUZi?</h2>
         <p>whereWUZi is built for people who need a reliable, private record of where they've been:</p>
         <ul class="use-case-list">
-            <li><strong>Business travelers</strong> — document travel dates and locations for expense reports and reimbursement.</li>
+            <li><strong>Business travelers</strong> — document travel dates and locations for expense reports and reimbursement. Review any month at a glance in the Location Calendar and export it as a PDF.</li>
             <li><strong>Credit card review</strong> — quickly verify that charges match where you actually were on a given date.</li>
-            <li><strong>Domicile and residency documentation</strong> — establish a dated record of physical presence for tax residency, state domicile, or legal purposes.</li>
-            <li><strong>Frequent movers</strong> — people who split time between homes, cities, or states and need to track where they spent time.</li>
+            <li><strong>Domicile and residency documentation</strong> — establish a dated record of physical presence for tax residency, state domicile, or legal purposes. The monthly calendar view and PDF export make it easy to share with an accountant or attorney.</li>
+            <li><strong>Frequent movers</strong> — people who split time between homes, cities, or states and need to track where they spent time. See exactly how many days you spent in each location, month by month.</li>
             <li><strong>Remote workers</strong> — document work locations for compliance or reimbursement purposes.</li>
             <li><strong>Anyone who wants a private location history</strong> — without giving it to Google, Apple, or any other service.</li>
         </ul>
@@ -368,6 +425,7 @@
                     <ul>
                         <li>Daily IP-based location logging</li>
                         <li>Full location history viewer</li>
+                        <li>Location Calendar with PDF export</li>
                         <li>Background logging</li>
                         <li>Local storage only</li>
                     </ul>
